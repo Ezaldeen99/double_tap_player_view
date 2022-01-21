@@ -139,7 +139,6 @@ class _DoubleTapAnimatedState extends ConsumerState<_DoubleTapAnimated>
   @override
   void initState() {
     super.initState();
-    ref.listen(_pDoubleTapEvent(widget.vmConf), _onChange);
 
     _animationController = AnimationController(
       vsync: this,
@@ -170,6 +169,7 @@ class _DoubleTapAnimatedState extends ConsumerState<_DoubleTapAnimated>
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(_pDoubleTapEvent(widget.vmConf), _onChange);
     return Expanded(
         child: FadeTransition(
             opacity: _fadeAnimation,

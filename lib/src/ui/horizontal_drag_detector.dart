@@ -61,7 +61,6 @@ class DragOverlayState extends ConsumerState<DragOverlay>
   @override
   void initState() {
     super.initState();
-    ref.listen(kPrvIsDragging, _onChange);
 
     _ac = AnimationController(
       vsync: this,
@@ -82,6 +81,8 @@ class DragOverlayState extends ConsumerState<DragOverlay>
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(kPrvIsDragging, _onChange);
+
     return FadeTransition(
       opacity: _animation,
       child: Container(
